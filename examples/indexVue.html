@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>lapg-theme-manager Vue Example</title>
+    <script src="https://unpkg.com/vue@3.2.47/dist/vue.global.js"></script>
+    <script src="./../src/lapg-themeManager.js" type="module"></script>
+    <style>
+      .light-button {
+        background-color: #ffffff;
+        color: #000000;
+        border: 1px solid #000000;
+      }
+      .dark-button {
+        background-color: #000000;
+        color: #ffffff;
+        border: 1px solid #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- <h1>{{ message }}</h1>
+      <button
+        v-bind:class="{
+          'light-button': currentTheme === 'light',
+          'dark-button': currentTheme === 'dark'
+        }"
+        v-on:click="toggleTheme"
+      >
+        Toggle Theme
+      </button> -->
+    </div>
+    <script>
+      console.log(lapg)
+      // lapg().loadThemeFromJSON('light', {
+      //   'body': {
+      //     'background-color': '#FFFFFF',
+      //     'color': '#000000',
+      //   },
+      // });
+
+      // lapg().loadThemeFromJSON('dark', {
+      //   'body': {
+      //     'background-color': '#000000',
+      //     'color': '#FFFFFF',
+      //   },
+      // });
+
+      // new Vue({
+      //   el: '#app',
+      //   data: {
+      //     message: 'lapg-theme-manager Vue Example',
+      //     currentTheme: 'light',
+      //   },
+      //   methods: {
+      //     toggleTheme: function () {
+      //       const currentTheme = this.currentTheme === 'light' ? 'dark' : 'light';
+      //       lapg().ThemeContext.setTheme(currentTheme);
+      //       this.currentTheme = currentTheme;
+      //     },
+      //   },
+      //   mounted: function () {
+      //     lapg().ThemeContext.setTheme(this.currentTheme);
+      //   },
+      // });
+    </script>
+  </body>
+</html>

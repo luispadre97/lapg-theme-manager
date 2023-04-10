@@ -7,7 +7,7 @@ lapg-theme-manager is a lightweight library that allows you to easily apply and 
 To start using LAPG, include the library in your HTML file using the following script tag:
 
 ```
-<script src="https://unpkg.com/lapg@1.0.0/dist/lapg.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/luispadre97/lapg-theme-manager@main/dist/bundle.min.js"></script>
 ```
 
 Alternatively, you can use a different version or download the library and host it locally.
@@ -16,7 +16,7 @@ Alternatively, you can use a different version or download the library and host 
 
 Before you can apply themes, you need to load them into the `ThemeContext` object. You can do this by calling the `loadThemeFromJSON` function and passing in a theme name and a JSON object containing the styles for that theme. For example:
 
-```json
+```
 lapg().loadThemeFromJSON('light', {
   'body': {
     'background-color': '#FFFFFF',
