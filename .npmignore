@@ -1,4 +1,3 @@
 src/
-dist/bundle.js
 Gruntfile.js
 rollup.config.js
