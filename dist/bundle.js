@@ -122,7 +122,7 @@
       return;
     }
 
-    const css = generateCSSRules(theme);
+    let css = generateCSSRules(theme);
     // Agregamos la generación de CSS a partir de clases
     if (typeof theme === 'object' && !Array.isArray(theme)) {
       css += generateCSSFromClasses(themeName);

@@ -6,14 +6,13 @@ export default {
   output: [
     {
       file: 'dist/bundle.js',
-      format: 'esm'
+      format: 'esm',
     },
     {
       file: 'dist/bundle.min.js',
       format: 'iife',
-      name: "version",
-      plugins: [terser()]
-    }
+      plugins: [terser()],
+    },
   ],
-  plugins: [json()]
-}
+  plugins: [json()],
+};
