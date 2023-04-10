@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vanilla JS Project</title>
+  <!-- Incluye el archivo lapg-themeManager.js -->
+  <script src="./../dist/bundle.min.js" type="module"></script>
+</head>
+
+<body>
+  <!-- Aquí va el contenido de tu página -->
+
+  <p data-dynamic-style>Texto con tema por defecto</p>
+  <div data-dynamic-style>Texto con tema personalizado</div>
+  <button data-dynamic-style class="myButton args">Botón personalizado</button>
+  <button data-dynamic-style>Botón con tema por defecto</button>
+  <div data-dynamic-style class="span">ars</div>
+
+  <!-- Aquí va tu código JavaScript Vanilla -->
+  <script type="module">
+    const myThemeJSON = {
+      div: {
+        'background-color': 'white',
+        color: 'red',
+        ':hover': {
+          'background-color': 'blue',
+        },
+        ':focus': {
+          outline: 'none',
+        },
+        ':active': {
+          'background-color': 'green',
+        },
+      },
+      p: {
+        color: 'green'
+      },
+      button: {
+        background: 'red',
+        borderRadius: '45px',
+      },
+      'button.myButton': {
+        'background-color': 'blue',
+        color: 'white',
+        borderRadius: '5px',
+        padding: '10px',
+        ':hover': {
+          backgroundColor: 'lightblue',
+        },
+        'span': {
+          fontWeight: 'bold',
+        }
+      },
+      '.span': {
+        backgroundColor:"purple",
+        color: 'white'
+      }
+    };
+    const { loadThemeFromJSON } = lapg();
+    loadThemeFromJSON('myTheme', myThemeJSON);
+    ThemeContext.setTheme('myTheme');
+
+  </script>
+</body>
+
+</html>
