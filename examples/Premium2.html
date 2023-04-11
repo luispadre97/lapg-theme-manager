@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="myTheme">
+
+<head>
+  <meta charset="UTF-8">
+  <title>My Premium Template</title>
+  <script src="./../dist/bundle.min.js" type="module"></script>
+  <script type="module">
+    const variables = {
+      "primary-color": "#3366FF",
+      "secondary-color": "#00CC66",
+      "text-color": "#333333",
+      "link-color": "#FF6633",
+      "border-color": "#CCCCCC",
+      "background-color": "#F5F5F5"
+    }
+    const myThemeJSON = {
+      "body": {
+        "background-color": "$background-color",
+        "color": "$text-color"
+      },
+      "header": {
+        "background-color": "$primary-color",
+        "color": "#fff",
+        "height": "60px",
+        "padding": "20px",
+        "display": "flex",
+        "align-items": "center",
+        "& h1": {
+          "font-size": "28px",
+          "margin": "0"
+        }
+      },
+      "nav": {
+        "background-color": "$primary-color",
+        "color": "#fff",
+        "padding": "20px",
+        "display": "flex",
+        "justify-content": "space-between",
+        "align-items": "center",
+        "height": "40px",
+        "position": "sticky",
+        "top": "0",
+        "z-index": "1",
+        "& ul": {
+          "list-style": "none",
+          "padding": "0",
+          "margin": "0",
+          "& li": {
+            "display": "inline-block",
+            "margin-right": "20px",
+            "& a": {
+              "color": "#fff",
+              "text-decoration": "none",
+              "&:hover": {
+                "color": "$secondary-color"
+              }
+            }
+          }
+        }
+      },
+      "main": {
+        "padding": "20px",
+        "max-width": "800px",
+        "margin": "0 auto",
+        "& h2": {
+          "font-size": "36px",
+          "margin-bottom": "20px"
+        },
+        "& p": {
+          "font-size": "16px",
+          "margin-bottom": "40px"
+        },
+        "& button": {
+          "background-color": "$secondary-color",
+          "color": "#fff",
+          "padding": "10px 20px",
+          "border": "none",
+          "border-radius": "4px",
+          "cursor": "pointer",
+          "font-size": "16px",
+          "text-transform": "uppercase"
+        },
+        "& img": {
+          "max-width": "100%",
+          "margin-bottom": "20px"
+        }
+      },
+      "footer": {
+        "background-color": "$primary-color",
+        "color": "#fff",
+        "height": "60px",
+        "padding": "20px",
+        "& p": {
+          "font-size": "14px",
+          "margin": "0"
+        }
+      }
+    }
+
+    const { loadThemeFromJSON, ThemeContext } = lapg();
+    ThemeContext.variables = variables;
+    loadThemeFromJSON('myTheme', myThemeJSON);
+    ThemeContext.setTheme('myTheme');
+
+  </script>
+</head>
+
+<body>
+  <header data-dynamic-style>
+    <h1>My Website</h1>
+  </header>
+  <nav data-dynamic-style>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+
+  </nav>
+  <main data-dynamic-style>
+    <h2>Welcome to My Website</h2>
+    <img src="https://picsum.photos/800/400" alt="Placeholder image">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget erat eros. Morbi euismod hendrerit magna,
+      vitae sagittis nunc dapibus quis. Vestibulum elementum orci eu nunc convallis malesuada. Nullam tincidunt ante et
+      ullamcorper convallis. Aenean vel mauris at lectus malesuada fringilla id id felis. Vivamus in enim nunc. Sed
+      convallis eros non ligula pulvinar luctus. Pellentesque habitant morbi tristique senectus et netus et malesuada
+      fames ac turpis egestas. Sed ac ipsum eu nisl gravida tristique in vitae ex. Duis facilisis aliquam quam eu
+      suscipit. Donec euismod arcu sed aliquam molestie. Praesent in nisi in elit gravida bibendum. Donec rhoncus
+      ultricies justo, vitae scelerisque enim lobortis eu. Duis euismod purus sit amet tellus interdum malesuada.
+    </p>
+    <button>Get Started</button>
+  </main>
+  <footer data-dynamic-style>
+    <p>&copy; 2023 My Company</p>
+  </footer>
+</body>
+
+</html>

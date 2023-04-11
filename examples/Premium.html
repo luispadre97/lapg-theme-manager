@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="myTheme">
+
+
+<head>
+  <meta charset="UTF-8">
+  <title>My Premium Template</title>
+  <script src="./../dist/bundle.min.js" type="module"></script>
+  <script type="module">
+    const variables = {
+      "primary-color": "#3366FF",
+      "secondary-color": "#00CC66",
+      "text-color": "#333333",
+      "link-color": "#FF6633",
+      "border-color": "#CCCCCC",
+      "background-color": "#F5F5F5"
+    }
+    const myThemeJSON = {
+      "header": {
+        "background-color": "$primary-color",
+        "color": "#fff",
+        "height": "60px",
+        "padding": "20px",
+        "& h1": {
+          "font-size": "28px",
+          "margin": "0"
+        }
+      },
+      "main": {
+        "display": "flex",
+        "flex-direction": "column",
+        "align-items": "center",
+        "justify-content": "center",
+        "height": "calc(100vh - 60px)",
+        "& h2": {
+          "font-size": "36px",
+          "margin-bottom": "20px"
+        },
+        "& p": {
+          "font-size": "16px",
+          "margin-bottom": "40px"
+        },
+        "& button": {
+          "background-color": "$secondary-color",
+          "color": "#fff",
+          "padding": "10px 20px",
+          "border": "none",
+          "border-radius": "4px",
+          "cursor": "pointer",
+          "font-size": "16px",
+          "text-transform": "uppercase"
+        }
+      },
+      "footer": {
+        "background-color": "$primary-color",
+        "color": "#fff",
+        "height": "60px",
+        "padding": "20px",
+        "& p": {
+          "font-size": "14px",
+          "margin": "0"
+        }
+      }
+    }
+    const { loadThemeFromJSON, ThemeContext } = lapg();
+    ThemeContext.variables = variables
+    loadThemeFromJSON('myTheme', myThemeJSON);
+    ThemeContext.setTheme('myTheme');
+
+  </script>
+</head>
+
+<body>
+  <header data-dynamic-style>
+    <h1>My Website</h1>
+  </header>
+  <main data-dynamic-style>
+    <h2>Welcome to My Website</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget erat eros. Morbi euismod hendrerit magna,
+      vitae sagittis nunc dapibus quis.</p>
+    <button>Get Started</button>
+  </main>
+  <footer data-dynamic-style>
+    <p>&copy; 2023 My Company</p>
+  </footer>
+</body>
+
+</html>

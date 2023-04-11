@@ -1,68 +1,38 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>lapg-theme-manager Vue Example</title>
-    <script src="https://unpkg.com/vue@3.2.47/dist/vue.global.js"></script>
-    <script src="./../src/lapg-themeManager.js" type="module"></script>
-    <style>
-      .light-button {
-        background-color: #ffffff;
-        color: #000000;
-        border: 1px solid #000000;
-      }
-      .dark-button {
-        background-color: #000000;
-        color: #ffffff;
-        border: 1px solid #ffffff;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="app">
-      <!-- <h1>{{ message }}</h1>
-      <button
-        v-bind:class="{
-          'light-button': currentTheme === 'light',
-          'dark-button': currentTheme === 'dark'
-        }"
-        v-on:click="toggleTheme"
-      >
-        Toggle Theme
-      </button> -->
-    </div>
-    <script>
-      console.log(lapg)
-      // lapg().loadThemeFromJSON('light', {
-      //   'body': {
-      //     'background-color': '#FFFFFF',
-      //     'color': '#000000',
-      //   },
-      // });
+<html lang="en" data-theme="default-theme">
 
-      // lapg().loadThemeFromJSON('dark', {
-      //   'body': {
-      //     'background-color': '#000000',
-      //     'color': '#FFFFFF',
-      //   },
-      // });
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Themed Page</title>
+  <script src="./../dist/bundle.min.js" type="module"></script>
 
-      // new Vue({
-      //   el: '#app',
-      //   data: {
-      //     message: 'lapg-theme-manager Vue Example',
-      //     currentTheme: 'light',
-      //   },
-      //   methods: {
-      //     toggleTheme: function () {
-      //       const currentTheme = this.currentTheme === 'light' ? 'dark' : 'light';
-      //       lapg().ThemeContext.setTheme(currentTheme);
-      //       this.currentTheme = currentTheme;
-      //     },
-      //   },
-      //   mounted: function () {
-      //     lapg().ThemeContext.setTheme(this.currentTheme);
-      //   },
-      // });
-    </script>
-  </body>
+  <script type="module">
+    // import lapg from './path/to/your/lapg.js';
+    const variables = {
+      "primaryColor": "#00BCD4",
+      "secondaryColor": "#FF5722"
+    }
+    const themeJSON = {
+      "button": {
+        "backgroundColor": "$primaryColor",
+        "color": "white"
+      },
+      ".title": {
+        "color": "$secondaryColor",
+        "fontSize": "24px"
+      }
+    };
+    const { loadThemeFromJSON, ThemeContext } = lapg();
+    ThemeContext.variables = variables;
+    loadThemeFromJSON('myTheme', themeJSON);
+    ThemeContext.setTheme('myTheme');
+  </script>
+</head>
+
+<body>
+  <h1 class="title" data-dynamic-style>Title with themed color</h1>
+  <button data-dynamic-style>Themed button</button>
+</body>
+
 </html>

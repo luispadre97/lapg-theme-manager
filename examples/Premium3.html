@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="myTheme">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Chat Template</title>
+    <script src="./../dist/bundle.min.js" type="module"></script>
+    <script type="module">
+        const myThemeJSON = {
+            "header": {
+                "background-color": "#232323",
+                "color": "#fff",
+                "height": "60px",
+                "padding": "20px",
+                "display": "flex",
+                "align-items": "center",
+                "& img": {
+                    "height": "30px",
+                    "margin-right": "10px",
+                    "filter": "brightness(0) invert(1)"
+                },
+                "& h1": {
+                    "font-size": "24px",
+                    "margin": "0"
+                }
+            },
+            ".chat-container": {
+                "display": "flex",
+                "flex-direction": "column",
+                "padding": "20px",
+                "height": "calc(100vh - 120px)",
+                "background-color": "#f5f5f5",
+                "border-radius": "10px",
+                "overflow-y": "scroll",
+                "scrollbar-width": "thin",
+                "&::-webkit-scrollbar": {
+                    "width": "4px"
+                },
+                "&::-webkit-scrollbar-track": {
+                    "background-color": "#f5f5f5"
+                },
+                "&::-webkit-scrollbar-thumb": {
+                    "background-color": "#ccc",
+                    "border-radius": "10px"
+                }
+            },
+            ".chat-message": {
+                "display": "flex",
+                "margin-bottom": "20px",
+                "&.received": {
+                    "flex-direction": "row"
+                },
+                "&.sent": {
+                    "flex-direction": "row-reverse"
+                },
+                "& .avatar": {
+                    "width": "40px",
+                    "height": "40px",
+                    "border-radius": "50%",
+                    "overflow": "hidden",
+                    "margin-right": "10px",
+                    "& img": {
+                        "width": "100%",
+                        "height": "100%",
+                        "object-fit": "cover",
+                        "border-radius": "50%",
+                        "border": "2px solid #fff"
+                    }
+                },
+                "& .message-content": {
+                    "max-width": "70%",
+                    "background-color": "#fff",
+                    "padding": "15px",
+                    "border-radius": "10px",
+                    "box-shadow": "0px 1px 3px rgba(0, 0, 0, 0.1)"
+                },
+                "& .message-content p": {
+                    "font-size": "16px",
+                    "margin": "0",
+                    "line-height": "1.5"
+                },
+                "& .message-info": {
+                    "font-size": "12px",
+                    "color": "#999",
+                    "text-align": "right",
+                    "margin-top": "5px"
+                }
+            },
+            ".chat-input": {
+                "display": "flex",
+                "background-color": "#f5f5f5",
+                "padding": "10px",
+                "& input": {
+                    "flex": "1",
+                    "border": "none",
+                    "background-color": "transparent",
+                    "font-size": "16px",
+                    "margin-right": "10px",
+                    "&::placeholder": {
+                        "color": "#999"
+                    }
+                },
+                "& button": {
+                    "background-color": "#3CAEA3",
+                    "border": "none",
+                    "color": "#fff",
+                    "padding": "10px 20px",
+                    "border-radius": "10px",
+                    "cursor": "pointer",
+                    "font-size": "16px",
+                    "text-transform": "uppercase",
+                    "transition": "background-color 0.3s ease",
+                    "&:hover": {
+                        "background-color": "#128C7E"
+                    }
+                }
+            },
+            ".chat-info": {
+                "background-color": "#fff",
+                "border-radius": "10px",
+                "box-shadow": "0px 1px 3px rgba(0, 0, 0, 0.1)",
+                "padding": "20px",
+                "margin-bottom": "20px",
+                "& h2": {
+                    "font-size": "18px",
+                    "margin-top": "0",
+                    "margin-bottom": "10px"
+                },
+                "& p": {
+                    "font-size": "14px",
+                    "margin-bottom": "10px",
+                    "line-height": "1.5"
+                },
+                "& ul": {
+                    "list-style": "none",
+                    "padding": "0",
+                    "& li": {
+                        "display": "flex",
+                        "align-items": "center",
+                        "margin-bottom": "5px",
+                        "& span": {
+                            "display": "inline-block",
+                            "width": "80px",
+                            "font-weight": "bold",
+                            "margin-right": "10px"
+                        }
+                    }
+                }
+            }
+        }
+        const { loadThemeFromJSON, ThemeContext } = lapg();
+        ThemeContext.variables = {
+            "primary-color": "#128C7E",
+            "secondary-color": "#F6C90E",
+            "text-color": "#232323",
+            "link-color": "#128C7E",
+            "border-color": "#ccc",
+            "background-color": "#f5f5f5",
+            "accent-color": "#FF0066"
+        };
+        loadThemeFromJSON('myTheme', myThemeJSON);
+        ThemeContext.setTheme('myTheme');
+
+    </script>
+</head>
+
+<body>
+    <header data-dynamic-style>
+        <img src="./assets/logo.svg" alt="Logo">
+        <h1>Exotic Chat</h1>
+    </header>
+    <div class="chat-container" data-dynamic-style>
+        <div class="chat-message sent">
+            <div class="avatar"><img src="./assets/avatar-1.jpg" alt="User Avatar"></div>
+            <div class="message-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin molestie, justo eu hendrerit dictum,
+                    massa libero semper dolor, et commodo turpis magna non quam. </p>
+                <div class="message-info">Sent - 3:00 PM</div>
+            </div>
+        </div>
+        <div class="chat-message received">
+            <div class="avatar"><img src="./assets/avatar-2.jpg" alt="User Avatar"></div>
+            <div class="message-content">
+                <p>Mauris congue vehicula nisi, eget euismod lectus luctus vel. Cras consequat arcu vel tincidunt
+                    vehicula.
+                </p>
+                <div class="message-info">Received - 3:05 PM</div>
+            </div>
+        </div>
+        <div class="chat-message sent">
+            <div class="avatar"><img src="./assets/avatar-1.jpg" alt="User Avatar"></div>
+            <div class="message-content">
+                <p>Morbi mollis odio in elit maximus, quis vestibulum nulla semper. Sed aliquam luctus velit eu
+                    imperdiet.
+                </p>
+                <div class="message-info">Sent - 3:10 PM</div>
+            </div>
+        </div>
+        <div class="chat-message received">
+            <div class="avatar"><img src="./assets/avatar-2.jpg" alt="User Avatar"></div>
+            <div class="message-content">
+                <p>Nullam malesuada convallis lectus. Duis sagittis ligula velit, eget ullamcorper ex vestibulum non.
+                </p>
+                <div class="message-info">Received - 3:15 PM</div>
+            </div>
+        </div>
+        <div class="chat-message sent">
+            <div class="avatar"><img src="./assets/avatar-1.jpg" alt="User Avatar"></div>
+            <div class="message-content">
+                <p>Curabitur consequat tellus sapien, non ultrices nisi suscipit non. Pellentesque bibendum eros quis
+                    tellus scelerisque, a hendrerit magna hendrerit. </p>
+                <div class="message-info">Sent - 3:20 PM</div>
+            </div>
+        </div>
+        <div class="chat-message received">
+            <div class="avatar"><img src="./assets/avatar-2.jpg" alt="User Avatar"></div>
+            <div class="message-content">
+                <p>Morbi finibus, dolor vel efficitur ultricies, urna eros pretium est, vitae vulputate nisi quam non
+                    velit. Aliquam erat volutpat.</p>
+                <div class="message-info">Received - 3:25 PM</div>
+            </div>
+        </div>
+    </div>
+    <div class="chat-input" data-dynamic-style>
+        <input type="text" placeholder="Type a message...">
+        <button>Send</button>
+    </div>
+    <div class="chat-info" data-dynamic-style>
+        <h2>About this Chat</h2>
+        <p>This is a sample chat interface built with HTML, CSS, and JavaScript.</p>
+        <ul>
+            <li><span>Created by:</span> John Doe</li>
+            <li><span>Email:</span> john.doe@example.com</li>
+            <li><span>Website:</span> <a href="https://johndoe.com">johndoe.com</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>
