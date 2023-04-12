@@ -103,14 +103,14 @@
   function lapg(options) {
     return {
       ThemeContext: ThemeContext,
-      // loadThemeFromJSON: (themeName, themeJSON) => ThemeContext.loadTheme(themeName, themeJSON),
+      loadThemeFromJSON: (themeName, themeJSON) => ThemeContext.loadTheme(themeName, themeJSON),
       // on: (eventName, callback) => document.addEventListener(`lapg:${eventName}`, (e) => {
       //   callback(e.detail);
       // }),
       // emit: (eventName, data) => document.dispatchEvent(new CustomEvent(`lapg:${eventName}`, { detail: data })),
-      loadTheme: function loadTheme(config) {
+      loadTheme: (config) =>{
         const { loadThemeFromJSON: loadTheme, ThemeContext: { setTheme } } = lapg();
-        loadTheme('multimarcas', { '.marca': config });
+        ThemeContext.loadTheme('multimarcas', { '.marca': config });
         setTheme('multimarcas');
       },
     };
