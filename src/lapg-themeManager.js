@@ -103,20 +103,20 @@
   function lapg(options) {
     return {
       ThemeContext: ThemeContext,
-      loadThemeFromJSON: (themeName, themeJSON) => ThemeContext.loadTheme(themeName, themeJSON),
+      // loadThemeFromJSON: (themeName, themeJSON) => ThemeContext.loadTheme(themeName, themeJSON),
       // on: (eventName, callback) => document.addEventListener(`lapg:${eventName}`, (e) => {
       //   callback(e.detail);
       // }),
       // emit: (eventName, data) => document.dispatchEvent(new CustomEvent(`lapg:${eventName}`, { detail: data })),
       loadTheme: (config) =>{
-        const { loadThemeFromJSON: loadTheme, ThemeContext: { setTheme } } = lapg();
         ThemeContext.loadTheme('multimarcas', { '.marca': config });
-        setTheme('multimarcas');
+        ThemeContext.setTheme('multimarcas');
       },
     };
   }
 
   global.lapg = lapg;
+  global.loadTheme = loadTheme;
   global.ThemeContext = ThemeContext;
 })(window);
 
