@@ -110,6 +110,10 @@
   //     //   callback(e.detail);
   //     // }),
   //     // emit: (eventName, data) => document.dispatchEvent(new CustomEvent(`lapg:${eventName}`, { detail: data })),
+  //     loadTheme: (config) =>{
+  //       ThemeContext.loadTheme('multimarcas', { '.marca': config });
+  //       ThemeContext.setTheme('multimarcas');
+  //     },
   //   };
   // }
   function lapg(options) {
